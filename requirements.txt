@@ -1,0 +1,7 @@
+asgiref==3.7.2
+Django==4.2.3
+django-pdfkit==0.3.1
+pdfkit==0.6.0
+sqlparse==0.4.4
+typing_extensions==4.7.1
+tzdata==2023.3

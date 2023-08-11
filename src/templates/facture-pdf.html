@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facture</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row gutters">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="card">
+                    <div class="card-body p-0">
+                        <div class="invoice-container">
+                            <div class="invoice-header">
+                                <!-- Row start -->
+                                <div class="row gutters">
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                        <a href="Techgeek.com" class="invoice-logo">
+                                            Haroun Technologie
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <address class="text-right">
+                                            Harouna, Technicien Supérieur<br>
+                                            Niger, Niamey<br>
+                                            00000 00000
+                                        </address>
+                                    </div>
+                                </div>
+                                <!-- Row end -->
+        
+                                <!-- Row start -->
+                                <div class="row gutters">
+                                    <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+                                        <div class="invoice-details">
+                                            <address>
+                                                {{obj.customer.nom}}<br>
+                                                {{obj.customer.adresse}}, {{obj.customer.ville}}, Niger
+                                            </address>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+                                        <div class="invoice-details">
+                                            <div class="invoice-num">
+                                                <div>{{obj.get_type_facture_display}} - #00{{obj.id}}</div>
+                                                <div>{{obj.date_facture}}</div>
+                                            </div>
+                                        </div>													
+                                    </div>
+                                </div>
+                                <!-- Row end -->
+        
+                            </div>
+        
+                            <div class="invoice-body">
+        
+                                <!-- Row start -->
+                                <div class="row gutters">
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                        <div class="table-responsive">
+                                            <table class="table custom-table m-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Items</th>
+                                                        <th>Produit ID</th>
+                                                        <th>Quantités</th>
+                                                        <th>Prix Unitaire</th>
+                                                        <th>Total</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                  {% for article in articles %}  
+                                                  
+                                                    <tr>
+    
+                                                       
+    
+                                                        <td>
+                                                            {{ article.nom_article }}
+                                                            
+                                                        </td>
+    
+                                                        <td>
+                                                            {{ article.id }}
+                                                            
+                                                        </td>
+    
+                                                        <td>
+                                                            {{ article.quantite }}
+                                                            
+                                                        </td>
+    
+                                                        <td>
+                                                            {{ article.prix_unit }}
+                                                            
+                                                        </td>
+    
+                                                        <td>
+                                                            {{ article.prix_total }}
+                                                            
+                                                        </td>
+    
+                                                        
+                                                        
+                                                    </tr>
+                                                   {% endfor %} 
+                                                    
+                                                    
+                                                    <tr>
+                                                        <td>Commentaire: {{obj.commentaires}}</td>
+                                                        <td colspan="2">
+                                                            <p>
+                                                                Subtotal<br>
+                                                                Expédition &amp; Transport<br>
+                                                                Taxe<br>
+                                                            </p>
+                                                            <h5 class="text-success"><strong>Total</strong></h5>
+                                                        </td>			
+                                                        <td>
+                                                            <p>
+                                                                {{obj.total}} FCFA<br>
+                                                                00.00 FCFA<br>
+                                                                00.00 FCFA<br>
+                                                            </p>
+                                                            <h5 class="text-success"><strong>${{obj.total}} FCFA</strong></h5>
+                                                        </td>
+                                                        <td> 
+                                                                PAIE:                    
+    
+                                                            {% if obj.paie  %}
+
+                                                                <strong style="color: green;">OUI</strong>
+                                                             {% else %}
+                                                                 <strong style="color: red;">NON</strong>
+        
+                                                             {% endif %}
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Row end -->
+        
+                            </div>
+        
+                            <div class="invoice-footer">
+                                Merci pour votre achat.
+                            </div>
+        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
