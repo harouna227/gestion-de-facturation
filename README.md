@@ -1,7 +1,6 @@
 # Système de facturation en django
-```
 Les étapes pour bien cloner mon projet
-```
+
 # Etape 1
 Cloner le projet
 ```
@@ -19,6 +18,7 @@ python -m venv .env
 ```
 # Etape 4 
 Activer l'environnement virtuel:
+
 Sur linux/mac os
 ```
 source .env/bin/activate
